@@ -1,0 +1,16 @@
+<h1>leedo</h1>
+
+<form action="/" method="post">
+	<input type="text" name="description" placeholder="trynna?"/>
+	<input type="submit" value="create"/>
+</form>
+
+<% for (var i=0; i<tasks.length; i++){ %>
+	<%= tasks[i].description %>
+	<form action="<%= tasks[i]._id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="delete">
+		<a href="/<%= tasks[i]._id %>/edit">edit</a>
+	</form>
+	<br>
+<% } %>

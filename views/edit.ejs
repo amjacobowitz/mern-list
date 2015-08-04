@@ -1,0 +1,6 @@
+<form action="/<%= task._id %>" method="post">
+	<input type="hidden" name="_method" value="put">
+	<input type="text" name="description" value="<%= task.description %>" >
+	<br>
+	<input type="submit" value="edit">
+</form>
