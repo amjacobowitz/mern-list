@@ -21,7 +21,7 @@ router.use(methodOverride(function(req, res){
 router.route('/')
 	.get(function(req, res) {
 		Task.find({}, function(err, tasks){
-	  	res.render('index', { tasks: tasks })
+	  	res.render(req.url, { tasks: tasks })
 	  });
 	})
 	.post(function(req, res){

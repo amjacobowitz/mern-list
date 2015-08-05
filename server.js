@@ -1,6 +1,7 @@
 var express = require('express')
 var app = express();
 var path = require('path')
+var engine = require('react-engine')
 var port = 3000
 
 var server = app.listen(port, function(){
@@ -13,8 +14,18 @@ var tasks = require('./routes/task');
 
 console.log('Listening at port: ' + port)
 
-app.set('view engine', 'ejs');
+// User for  ejs
+// app.set('view engine', 'ejs');
+
+var engineOptions = {
+	reactRoutes: '/public/javascripts/todo.js'
+}
+
+app.engine('.jsx', engine.server.create(engineOptions))
 app.set('views', __dirname + '/views');
+app.set('view engine', 'jsx')
+app.set('view', engine.expressView)
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', tasks);
