@@ -9,8 +9,13 @@ var server = app.listen(port, function(){
 })
 
 var db = require('./models/db')
-var tasks = require('./models/task')
-var tasks = require('./routes/task');
+var model_tasks = require('./models/task')
+
+
+var route_tasks = require('./routes/task');
+app.use('/', route_tasks);
+
+
 
 console.log('Listening at port: ' + port)
 
@@ -28,4 +33,3 @@ app.set('view', engine.expressView)
 
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', tasks);

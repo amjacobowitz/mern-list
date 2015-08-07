@@ -1,7 +1,7 @@
 {
   "name": "mern-todo",
   "version": "1.0.0",
-  "description": "mern r as react",
+  "description": "mern: r as react",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

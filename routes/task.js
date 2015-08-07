@@ -17,19 +17,16 @@ router.use(methodOverride(function(req, res){
 }))
 
 
-
 router.route('/')
 	.get(function(req, res) {
 		Task.find({}, function(err, tasks){
-	  	res.render(req.url, { tasks: tasks })
+	  	res.render('index', { tasks: tasks })
 	  });
 	})
 	.post(function(req, res){
 		var description = req.body.description
 
-		Task.create({
-			description: description
-		}, function(err, task){
+		Task.create({description: description}, function(err, task){
 			if (err) {
 				return console.error(err)
 			} else {
